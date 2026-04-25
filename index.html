@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browser Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background canvas for animated particles -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="dashboard">
+
+    <!-- Top bar: date + weather placeholder -->
+    <header class="top-bar">
+      <div id="date-display" class="date-display"></div>
+      <div class="weather-placeholder">
+        <span class="weather-icon">⛅</span>
+        <span id="weather-text">Loading weather…</span>
+      </div>
+    </header>
+
+    <!-- Centre: greeting + clock + search -->
+    <main class="centre">
+      <p id="greeting" class="greeting"></p>
+      <div id="clock" class="clock"></div>
+
+      <form id="search-form" class="search-form" autocomplete="off">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Search the web…"
+            autofocus
+          />
+          <div id="engine-toggle" class="engine-toggle" title="Switch search engine">
+            <img id="engine-icon" src="" alt="" class="engine-img" />
+          </div>
+        </div>
+        <div id="engine-menu" class="engine-menu hidden">
+          <button type="button" data-engine="google"   data-url="https://www.google.com/search?q=" data-icon="https://www.google.com/favicon.ico">Google</button>
+          <button type="button" data-engine="bing"     data-url="https://www.bing.com/search?q="   data-icon="https://www.bing.com/favicon.ico">Bing</button>
+          <button type="button" data-engine="duckduckgo" data-url="https://duckduckgo.com/?q="    data-icon="https://duckduckgo.com/favicon.ico">DuckDuckGo</button>
+          <button type="button" data-engine="youtube"  data-url="https://www.youtube.com/results?search_query=" data-icon="https://www.youtube.com/favicon.ico">YouTube</button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Quick links -->
+    <section class="quick-links-section">
+      <h2 class="section-title">Quick Links</h2>
+      <div id="quick-links" class="quick-links">
+        <!-- links injected by JS -->
+      </div>
+      <button id="add-link-btn" class="add-link-btn" title="Add a new link">＋ Add Link</button>
+    </section>
+
+    <!-- To-do list -->
+    <section class="todo-section">
+      <h2 class="section-title">To-Do</h2>
+      <form id="todo-form" class="todo-form">
+        <input type="text" id="todo-input" class="todo-input" placeholder="Add a task…" />
+        <button type="submit" class="todo-add-btn">Add</button>
+      </form>
+      <ul id="todo-list" class="todo-list"></ul>
+    </section>
+
+  </div>
+
+  <!-- Add-link modal -->
+  <div id="link-modal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Add Quick Link</h3>
+      <label>Name<input type="text" id="modal-name" placeholder="e.g. GitHub" /></label>
+      <label>URL<input type="url" id="modal-url" placeholder="https://github.com" /></label>
+      <div class="modal-actions">
+        <button id="modal-save" class="btn-primary">Save</button>
+        <button id="modal-cancel" class="btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
